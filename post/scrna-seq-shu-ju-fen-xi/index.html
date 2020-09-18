@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>标签列表 | 木公</title>
+<title>scRNA-seq数据分析 | 木公</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,7 +18,21 @@
 
 
 
-    <meta name="description" content="常常学习，常常忘记">
+    <meta name="description" content="
+scRNA-seq相对于bulk RNAseq而言，它有几个特点，
+
+
+因为是单细胞，所以很多基因都测不到。
+
+
+少量丰度高的基因可能会占据大部分测序reads。
+
+
+大量出现PCR duplicates.
+
+
+人们在分析scRNA-se..." />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div id="app" class="main">
@@ -88,12 +102,56 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="tag-list-title">标签列表</h2>
-          <div class="tags-container">
+          <div class="post-detail">
+            <h2 class="post-title">scRNA-seq数据分析</h2>
+            <div class="post-date">2020-08-22</div>
             
-              <a class="tag" href="https://duocang.github.io/tag/wspBjLKqG/">Gridea</a>
+            <div class="post-content" v-pre>
+              <figure data-type="image" tabindex="1"><img src="https://duocang.github.io/post-images/1598129447490.png" alt="" loading="lazy"></figure>
+<p>scRNA-seq相对于bulk RNAseq而言，它有几个特点，</p>
+<ol>
+<li>
+<p>因为是单细胞，所以很多基因都测不到。</p>
+</li>
+<li>
+<p>少量丰度高的基因可能会占据大部分测序reads。</p>
+</li>
+<li>
+<p>大量出现PCR duplicates.</p>
+</li>
+</ol>
+<p>人们在分析scRNA-seq的数据时会问以下三个问题：</p>
+<ol>
+<li>
+<p>如何区分不同的细胞？</p>
+</li>
+<li>
+<p>如何区分PCR duplicates与真实丰度？</p>
+</li>
+<li>
+<p>实验的主要目的是进行细胞分类还是基因表达差异分析？</p>
+</li>
+</ol>
+<p>对于前两个问题，大多数情况下会通过barcode + UMI的策略来解决。对于分析过bulk RNA-seq数据的人来说，barcode并不会陌生。在scRNA-seq中，无非是barcode的添加手段及数量的区别罢了。那么，什么是UMI呢？它如何又能标记PCR duplicates呢？UMI (Unique Molecular Identifier)是一段固定长度的随机小片段，用以区别不同的PCR扩增模板。它和barcode一样，只不过它标记的不是不同的样品或者细胞，而是不同的模板片段。因为它是在RT-PCR之前就连接到模板上，所以当PCR完成以后，如果比对到相同位置的两个reads有相同的UMI，那么我们就认为这两个reads是来自于相同的模板的两个PCR重复。</p>
+<p>大多数的pipeline都会得到一个计数文件，当我们拿到这个计数文件之后，下游的分析，在Bioconductor中有很多比较有名气的软件包。这里介绍两个，一个是Monocle，一个是Seurat。</p>
+
+            </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://duocang.github.io/post/bo-shi/">
+                  <h3 class="post-title">
+                    博士
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
           </div>
+
         </div>
       </div>
     </div>
